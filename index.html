@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Akanksha Gaykar</title>
+<div class="brand-icon">AG</div>
+<meta name="description" content="Akanksha Gaykar — Computer Engineer | Web & ML Developer" />
+
+<!-- Chart.js for pie chart -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+
+<style>
+.brand-icon {
+  width: 42px;
+  height: 42px;
+  background: #1c1f26;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: #ffffff;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+:root{
+  --bg:#0b0f14; --card:#0f1720; --muted:#9aa6b2;
+  --accent:#6c5ce7; --accent2:#00b8d9; --glass: rgba(255,255,255,0.03);
+  --radius:12px; --maxw:1200px;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;background:linear-gradient(180deg,#071025 0%, #041028 100%);color:#e6eef8}
+a{color:var(--accent)}
+.container{max-width:var(--maxw);margin:32px auto;padding:20px}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:14px}
+.ag-icon{width:60px;height:60px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;font-weight:700;color:white;font-size:20px}
+nav{display:flex;gap:12px;align-items:center}
+nav a{padding:8px 10px;border-radius:8px;font-weight:600;color:#cfe5ff;text-decoration:none}
+.cta{background:linear-gradient(90deg,var(--accent),var(--accent2));padding:10px 12px;border-radius:10px;font-weight:700}
+.hero{display:grid;grid-template-columns:1fr 340px;gap:22px;margin-top:22px;align-items:start}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);padding:20px;border-radius:var(--radius)}
+h1{margin:0;font-size:28px}
+.lead{color:var(--muted);margin-top:8px;line-height:1.5}
+.profile{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.avatar{width:160px;height:160px;border-radius:16px;object-fit:cover;border:3px solid rgba(255,255,255,0.03)}
+.contact{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.btn{padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#e6eef8;text-decoration:none}
+.skills-section{display:grid;gap:18px;margin-top:18px}
+.skill-row{display:flex;flex-direction:column;gap:10px}
+.skill-title{font-weight:700;color:#dfe9ff;margin-bottom:6px}
+.icons{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.tech-icon{width:46px;height:46px;border-radius:9px;background:rgba(255,255,255,0.02);display:grid;place-items:center;border:1px solid rgba(255,255,255,0.03);overflow:hidden}
+.tech-icon img{width:28px;height:28px;opacity:0.98;filter:invert(1) hue-rotate(180deg) saturate(1)}
+.tech-icon span{font-size:12px;color:var(--muted);padding:4px}
+.chart-card{padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00))}
+canvas{max-width:100%;height:300px}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.proj{padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));border:1px solid rgba(255,255,255,0.03)}
+.proj h3{margin:0 0 6px 0}
+.proj p{margin:0;color:var(--muted);font-size:14px}
+footer{margin-top:30px;color:var(--muted);display:flex;justify-content:space-between;align-items:center;padding:10px}
+@media (max-width:980px){.hero{grid-template-columns:1fr}.projects-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){nav{display:none}.projects-grid{grid-template-columns:1fr}.avatar{width:120px;height:120px}}
+</style>
+</head>
+
+<body>
+<div class="container">
+<header>
+<div class="brand">
+<div class="ag-icon" aria-hidden="true">
+<svg width="44" height="44" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="g1" x1="0" x2="1">
+<stop offset="0" stop-color="#6c5ce7"/>
+<stop offset="1" stop-color="#00b8d9"/>
+</linearGradient>
+</defs>
+<rect width="120" height="120" rx="20" fill="url(#g1)"/>
+<text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="Inter,Arial" font-weight="700" font-size="58" fill="white">AG</text>
+</svg>
+</div>
+<div>
+<div style="font-weight:700">Akanksha Gaykar</div>
+<div style="font-size:13px;color:var(--muted)">Computer Engineer — Web & ML Developer</div>
+</div>
+</div>
+
+<nav>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#contact" class="cta">Contact</a>
+</nav>
+</header>
+
+<main>
+<section class="hero">
+<div class="card">
+<h1>Hi — I’m Akanksha. I build web apps & machine learning solutions.</h1>
+<p class="lead">I create full-stack & ML projects: a chest multi-disease identifier, placement tools, and small-business apps. I like clean UI and reliable backends.</p>
+
+<div class="skills-section" id="skills-section">
+<div class="skill-row">
+<div class="skill-title">Languages</div>
+<div class="icons" id="languages-icons"></div>
+</div>
+<div class="skill-row">
+<div class="skill-title">Frameworks & Tools</div>
+<div class="icons" id="frameworks-icons"></div>
+</div>
+<div class="skill-row">
+<div class="skill-title">DevOps & Databases</div>
+<div class="icons" id="devops-icons"></div>
+</div>
+</div>
+
+<div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+<a class="btn" href="Akanksha Gaykar.pdf" download>Download Resume</a>
+<a class="btn" href="https://github.com/AkankshaGaykar" target="_blank">View GitHub</a>
+</div>
+
+<section id="projects" style="margin-top:18px">
+<h2 style="margin:0 0 10px 0">Selected Projects</h2>
+<div id="projects-grid" class="projects-grid"></div>
+<div id="projects-loader" style="color:var(--muted);margin-top:10px">Loading projects…</div>
+</section>
+</div>
+
+<aside>
+<div class="card profile" style="margin-bottom:14px">
+<img class="avatar" src="profile.jpeg" alt="Akanksha profile" />
+<div style="font-weight:700">Akanksha Vishnu Gaykar</div>
+<div style="font-size:13px;color:var(--muted)">B. Computer Engineering — Genba Sopanrao Moze College</div>
+<div class="contact" style="margin-top:8px">
+<a class="btn" href="mailto:agaykar2002@gmail.com">Email</a>
+<a class="btn" href="tel:+919307211961">Call</a>
+<a class="btn" href="https://github.com/AkankshaGaykar" target="_blank">GitHub</a>
+</div>
+</div>
+
+<div class="card chart-card">
+<div style="font-weight:700;margin-bottom:6px">Most Used Languages</div>
+<canvas id="langChart"></canvas>
+<div id="chart-legend" style="margin-top:10px;color:var(--muted);font-size:13px"></div>
+</div>
+</aside>
+</section>
+
+<section id="about" style="margin-top:18px">
+<div class="card">
+<h2 style="margin:0 0 8px 0">About</h2>
+<p style="margin:0;color:var(--muted)">Completed Bachelor of Computer Engineering (GPA 8.50/10). Interned as web developer and PHP developer; ran AI/ML workshops. Projects include healthcare image classifiers and placement tools. Interested in building end-to-end products.</p>
+</div>
+</section>
+
+<section id="contact" style="margin-top:18px">
+<div class="card">
+<h2>Contact</h2>
+<p style="color:var(--muted)">Email: <a href="mailto:agaykar2002@gmail.com">agaykar2002@gmail.com</a> — Phone: <a href="tel:+919307211961">+91 93072 11961</a></p>
+<p style="color:var(--muted)">GitHub: <a href="https://github.com/AkankshaGaykar" target="_blank">github.com/AkankshaGaykar</a></p>
+</div>
+</section>
+</main>
+
+<footer>
+<div>© <span id="year"></span> Akanksha Gaykar</div>
+<div style="color:var(--muted);font-size:13px">Built with ❤️ · Deployed on GitHub Pages</div>
+</footer>
+
+</div>
+
+<script>
+/* =============== Inject Icons =============== */
+const languages = ['python','javascript','java','php','sql','html5','css3'];
+const frameworks = ['flask','django','laravel','bootstrap','react'];
+const devops = ['git','firebase','postgresql'];
+const niceName = {html5:'HTML',css3:'CSS',sql:'SQL'};
+
+function makeIcon(name){
+  const wrap=document.createElement('div');
+  wrap.className='tech-icon';
+  const img=document.createElement('img');
+  img.src=`https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/${name}.svg`;
+  img.onerror=()=>wrap.innerHTML=`<span>${niceName[name]||name}</span>`;
+  wrap.appendChild(img);return wrap;
+}
+
+languages.forEach(i=>document.getElementById('languages-icons').appendChild(makeIcon(i)));
+frameworks.forEach(i=>document.getElementById('frameworks-icons').appendChild(makeIcon(i)));
+devops.forEach(i=>document.getElementById('devops-icons').appendChild(makeIcon(i)));
+
+document.getElementById('year').textContent=new Date().getFullYear();
+
+/* ✅ Updated: Fetch ALL GitHub Repos */
+async function loadProjects(){
+  const loader=document.getElementById('projects-loader');
+  try{
+    const resp=await fetch('https://api.github.com/users/AkankshaGaykar/repos?per_page=100');
+    const repos=await resp.json();
+    const filtered=repos.filter(r=>!r.fork);
+
+    filtered.sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at));
+
+    const grid=document.getElementById('projects-grid');
+    grid.innerHTML='';
+
+    filtered.forEach(r=>{
+      const div=document.createElement('div');
+      div.className='proj';
+      div.innerHTML=`
+        <h3>${r.name}</h3>
+        <p>${r.description||'No description available'}</p>
+        <small style="color:var(--muted)">${r.language||'Unknown'} · ⭐ ${r.stargazers_count}</small><br>
+        <a class="btn" href="${r.html_url}" target="_blank" style="margin-top:6px;display:inline-block">View</a>`;
+      grid.appendChild(div);
+    });
+
+    loader.style.display='none';
+
+  }catch(e){
+    loader.textContent='Error loading projects.';
+    console.error(e);
+  }
+}
+loadProjects();
+
+/* =============== Pie Chart (same code unchanged) =============== */
+/* ✅ Updated Pie Chart: Python 50% | PHP 25% | Java 25% */
+function buildLangChart() {
+  const ctx = document.getElementById('langChart');
+  const legendEl = document.getElementById('chart-legend');
+
+  const labels = ["Python", "PHP", "Java", "HTML", "CSS", "JavaScript"];
+  const data = [30, 25, 25, 10, 5, 5];
+
+  const colors = [
+    "#3384ff", // Python
+    "#ff9933", // PHP
+    "#3ddc84", // Java
+    "#e34c26", // HTML
+    "#264de4", // CSS
+    "#f0db4f"  // JavaScript
+  ];
+
+  new Chart(ctx, {
+    type: "pie",
+    data: {
+      labels,
+      datasets: [{
+        data,
+        backgroundColor: colors,
+        borderColor: "transparent",
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } }
+    }
+  });
+
+  // ✅ Legend displayed below chart
+  let html = "";
+  labels.forEach((label, i) => {
+    html += `
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+      <span style="width:12px;height:12px;background:${colors[i]};display:inline-block;border-radius:3px"></span>
+      <div style="flex:1;">${label}</div>
+      <div style="color:var(--muted)">${data[i]}%</div>
+    </div>`;
+  });
+  legendEl.innerHTML = html;
+}
+buildLangChart();
+
+
+</script>
+</body>
+</html>
