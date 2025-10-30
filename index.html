@@ -4,13 +4,54 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Akanksha Gaykar</title>
-<div class="brand-icon">AG</div>
 <meta name="description" content="Akanksha Gaykar — Computer Engineer | Web & ML Developer" />
 
 <!-- Chart.js for pie chart -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
 
 <style>
+/* Polished Transitions & Unique Color Accents (No content hidden) */
+:root{
+  --bg:#0b0f14; --card:#141b2b; --muted:#aeb8ca;
+  --accent:#6c5ce7; --accent2:#00b8d9; --accent3:#ff45a0;
+  --gradientA: linear-gradient(90deg,#6c5ce7 0%, #00b8d9 100%);
+  --gradientB: linear-gradient(90deg,#ff45a0 0%, #6c5ce7 100%);
+  --gradientC: linear-gradient(90deg,#232f4d 0%, #00b8d9 100%);
+}
+body{background:var(--bg);color:#e6eef8;}
+.card,.chart-card,.profile,aside,section.hero{
+  background:var(--card);
+  box-shadow:0 2px 18px -7px #6c5ce733;
+  border-radius:var(--radius);
+  transition:box-shadow .22s,transform .19s,background .21s;
+  margin-bottom:22px;
+}
+.card:hover,.chart-card:hover,.profile:hover,aside:hover{box-shadow:0 10px 34px -12px var(--accent2),0 1.5px 12px -4px #ff45a055;transform:scale(1.025);background:var(--gradientC);}
+
+h2,h1{position:relative;text-align:left;font-weight:900;}
+h2::after,h1.section-title::after{
+  content:'';display:block;height:4px;width:64px;margin:7px 0 0 0;
+  background:var(--gradientA);border-radius:2px;
+  animation:gradientMove 2.5s linear infinite alternate;
+}
+@keyframes gradientMove {to{background-position:200% 0;}}
+
+/* Accent underline for nav and hero */
+nav a.cta{background:var(--gradientB);color:#fff;}
+nav a.cta:hover{background:var(--gradientA);}
+
+/* Tech icon animation */
+.tech-icon {transition:transform .17s cubic-bezier(.52,0,.59,1), box-shadow .13s, background .13s;}
+.tech-icon:hover {transform:scale(1.11) rotate(-7deg);background:var(--accent2);box-shadow:0 7px 19px -7px var(--accent2);}
+
+/* Buttons animate on hover */
+.btn,.btn-social{transition:box-shadow .15s, background .15s, color .15s,transform .13s;}
+.btn:hover,.btn-social:hover{background:var(--gradientB);color:#fff;transform:scale(1.07);box-shadow:0 2px 16px -6px var(--accent2);}
+
+/* Project cards scale+shadow on hover */
+.proj {transition:transform .16s,box-shadow .16s,background .12s;}
+.proj:hover{transform:scale(1.035) translateY(-3px);box-shadow:0 6px 22px -10px var(--accent2);background:var(--gradientA);} 
+
 .brand-icon {
   width: 42px;
   height: 42px;
@@ -24,12 +65,6 @@
   color: #ffffff;
   text-transform: uppercase;
   border: 1px solid rgba(255,255,255,0.08);
-}
-:root{
-  --bg:#0b0f14; --card:#0f1720; --muted:#9aa6b2;
-  --accent:#6c5ce7; --accent2:#00b8d9; --glass: rgba(255,255,255,0.03);
-  --radius:12px; --maxw:1200px;
-  color-scheme: dark;
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;background:linear-gradient(180deg,#071025 0%, #041028 100%);color:#e6eef8}
@@ -277,7 +312,27 @@ function buildLangChart() {
 }
 buildLangChart();
 
+/* === Section Fade-In on Scroll === */
+function onVisible(entries, observer) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}
+const observer = new IntersectionObserver(onVisible, {threshold: 0.11});
+document.querySelectorAll('.card, .chart-card, .profile, aside, section.hero').forEach(el => {
+    observer.observe(el);
+});
+/* Add waving hand if present */
+document.querySelectorAll('.hero h1').forEach(h1 => {
+    if(/👋/.test(h1.textContent)) {
+        h1.innerHTML = h1.innerHTML.replace('👋','<span class="wave-emoji">👋</span>');
+    }
+});
 
 </script>
 </body>
 </html>
+
